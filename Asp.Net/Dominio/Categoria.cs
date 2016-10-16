@@ -129,22 +129,29 @@ namespace Dominio
             }
         }
 
-        public IEnumerable<ent.Categoria> TraerInnerJoinCateProd()
+        public async Task<IEnumerable<ent.CategoriaProducto>> TraerInnerJoinCateProd()
         {
             try
             {
                 using (Modelo modelo = new Modelo())
                 {
-                    var query = from c in modelo.Categoria join p in modelo.Producto
-                                on c.ID_Categoria equals p.ID_Categoria
-                                select (new ent.Categoria()
-                                {
-
-                                });
-                    return query.ToList();
+                    return await Task.Run(() =>
+                    {
+                        var query = from c in modelo.Categoria
+                                    join p in modelo.Producto
+                                    on c.ID_Categoria equals p.ID_Categoria
+                                    select (new ent.CategoriaProducto()
+                                    {
+                                        ID_Categoria = c.ID_Categoria,
+                                        Nombre_Categoria = c.Nombre_Categoria,
+                                        ID_Producto = p.ID_Producto,
+                                        Nombre_Producto = p.Nombre_Producto
+                                    });
+                        return query.ToList();
+                    });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Error en traer inner join", ex.InnerException);
             }

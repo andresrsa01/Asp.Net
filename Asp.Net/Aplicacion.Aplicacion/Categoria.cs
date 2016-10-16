@@ -76,11 +76,11 @@ namespace Aplicacion.Aplicacion
             return Resultado;
         }
 
-        public IEnumerable<ent.Categoria> TraerInnerJoinCateProd()
+        public async Task<IEnumerable<ent.CategoriaProducto>> TraerInnerJoinCateProd()
         {
-            map.Mapear.CrearMapaCategoria();
-            var DetalleQuery = new dom.Categoria().TraerInnerJoinCateProd();
-            var Resultado = Mapper.Map<IEnumerable<data.Categoria>, IEnumerable<ent.Categoria>>(DetalleQuery);
+            map.Mapear.CrearMapaCategoriaProducto();
+            var DetalleQuery = await new dom.Categoria().TraerInnerJoinCateProd();
+            var Resultado = Mapper.Map<IEnumerable<data.CategoriaProducto>, IEnumerable<ent.CategoriaProducto>>(DetalleQuery);
             return Resultado;
         }
     }

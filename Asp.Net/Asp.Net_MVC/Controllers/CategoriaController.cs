@@ -206,12 +206,12 @@ namespace Asp.Net_MVC.Controllers
             return RedirectToAction("Error");
         }
 
-        public ActionResult TraerTodoInnerJoinCateProd()
+        public async Task<ActionResult> TraerTodoInnerJoinCateProd()
         {
-            IEnumerable<data.Categoria> listar = new app.Categoria().TraerInnerJoinCateProd();
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<data.Categoria, ent.Categoria>());
+            IEnumerable<data.CategoriaProducto> listar = await new app.Categoria().TraerInnerJoinCateProd();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<data.CategoriaProducto, ent.CategoriaProducto>());
             var mapper = config.CreateMapper();
-            IEnumerable<ent.Categoria> cate = mapper.Map<IEnumerable<data.Categoria>, IEnumerable<ent.Categoria>>(listar);
+            IEnumerable<ent.CategoriaProducto> cate = mapper.Map<IEnumerable<data.CategoriaProducto>, IEnumerable<ent.CategoriaProducto>>(listar);
             return View(cate);
         }
     }

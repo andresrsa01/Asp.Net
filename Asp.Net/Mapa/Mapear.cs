@@ -29,5 +29,10 @@ namespace Mapa
             Mapper.Initialize(createmap => { createmap.CreateMap<ent.Producto, data.Producto>(); createmap.CreateMap<data.Producto, ent.Producto>(); });
 
         }
+
+        public static void CrearMapaCategoriaProducto()
+        {
+            Mapper.Initialize(createmap => { createmap.CreateMap<ent.CategoriaProducto, data.CategoriaProducto>(); createmap.CreateMap<data.CategoriaProducto, ent.CategoriaProducto>(); });
+        }
     }
 }

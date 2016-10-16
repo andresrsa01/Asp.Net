@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Articulos.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaProducto.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

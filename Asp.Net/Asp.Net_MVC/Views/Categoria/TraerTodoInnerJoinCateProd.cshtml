@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Asp.Net_MVC.Models.Categoria>
+﻿@model IEnumerable<Asp.Net_MVC.Models.CategoriaProducto>
 
 @{
     ViewBag.Title = "TraerTodoInnerJoinCateProd";
@@ -14,7 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Nombre_Categoria)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_Producto)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -23,9 +25,7 @@
             @Html.DisplayFor(modelItem => item.Nombre_Categoria)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Categoria }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Categoria }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Categoria })
+            @Html.DisplayFor(modelItem => item.Nombre_Producto)
         </td>
     </tr>
 }
