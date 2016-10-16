@@ -14,5 +14,7 @@ namespace Aplicacion.Entidad
 
         [StringLength(50)]
         public string Nombre_Categoria { get; set; }
+
+        public bool? Locked { get; set; }
     }
 }

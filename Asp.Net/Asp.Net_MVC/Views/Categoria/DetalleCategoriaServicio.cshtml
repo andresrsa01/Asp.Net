@@ -1,0 +1,26 @@
+﻿@model Asp.Net_MVC.Models.Categoria
+
+@{
+    ViewBag.Title = "DetalleCategoriaServicio";
+}
+
+<h2>DetalleCategoriaServicio</h2>
+
+<div>
+    <h4>Categoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Categoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "ModificarCategoriaServicio", new { id = Model.ID_Categoria }) |
+    @Html.ActionLink("Back to List", "CategoriasServicio")
+</p>

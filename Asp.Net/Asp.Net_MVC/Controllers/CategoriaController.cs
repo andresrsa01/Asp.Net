@@ -156,6 +156,17 @@ namespace Asp.Net_MVC.Controllers
             return RedirectToAction("Error");
         }
 
+        public async Task<ActionResult> DetalleCategoriaServicio(int id)
+        {
+            var httpClient = new HttpClient();
+            var json = await httpClient.GetStringAsync("http://localhost:8082/api/Categoria/" + id);
+            data.Categoria cate = JsonConvert.DeserializeObject<data.Categoria>(json);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<data.Categoria, ent.Categoria>());
+            var mapper = config.CreateMapper();
+            ent.Categoria catelist = mapper.Map<data.Categoria, ent.Categoria>(cate);
+            return View(catelist);
+        }
+
         public async Task<ActionResult> ModificarCategoriaServicio(int id)
         {
             ViewBag.Message = "Modificar categoria.";

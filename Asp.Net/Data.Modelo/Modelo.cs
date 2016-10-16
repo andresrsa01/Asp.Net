@@ -5,7 +5,6 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using Data.Entidad;
-
     public partial class Modelo : DbContext
     {
         public Modelo()
